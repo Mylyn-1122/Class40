@@ -31,7 +31,9 @@ function setup(){
 
 function draw(){
   if(playerCount === 4){
+    clear()
     game.update(1);
+    
   }
   if(gameState === 1){
     clear();
@@ -39,6 +41,8 @@ function draw(){
   }
   //text(mouseX + " " + mouseY, mouseX, mouseY)
   if(gameState === 2){
+    clear()
     game.end()
+    
   }
 }
