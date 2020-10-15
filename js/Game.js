@@ -44,6 +44,7 @@ class Game {
     form.hide();
 
     Player.getPlayerInfo();
+    player.getCarsAtEnd();
     
     if(allPlayers !== undefined){
       //var display_position = 100;
@@ -87,21 +88,29 @@ class Game {
 
     }
 
-    if(player.distance === 3430){
-      gameState = 2
-    }
+    
     
     if(keyIsDown(UP_ARROW) && player.index !== null){
       player.distance +=10
       player.update();
     }
 
+    if(player.distance === 3430){
+      gameState = 2;
+      player.rank += 1;
+      Player.updateRank(player.rank);
+    }
+
     drawSprites();
+    stroke(20);
+    fill("red");
+    text("Rank : " + player.rank, 350, -3200)
   }
 
   end(){
-    game.update(2)
     alert("Game Ended")
+
+    console.log(player.rank)
 
   }
 
